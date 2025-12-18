@@ -375,3 +375,104 @@ body {
   background: var(--accent-primary);
   color: white;
 }
+
+/* ==========================================
+   MOBILE-FIRST UTILITIES
+   ========================================== */
+
+/* Safe area for iPhone notch/home indicator */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+/* Hide scrollbar but allow scrolling */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Touch-friendly tap targets */
+@media (hover: none) and (pointer: coarse) {
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent text selection on interactive elements */
+button, [role="button"] {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Active states for touch */
+@media (hover: none) {
+  .btn-primary:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  .btn-ghost:active {
+    background: var(--bg-card);
+  }
+}
+
+/* Better touch scrolling */
+.overflow-y-auto, .overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent overscroll bounce on iOS */
+.overscroll-contain {
+  overscroll-behavior: contain;
+}
+
+/* Extra small breakpoint for tiny phones */
+@media (min-width: 375px) {
+  .xs\:flex {
+    display: flex;
+  }
+  .xs\:hidden {
+    display: none;
+  }
+}
+
+/* Responsive text utilities */
+.text-responsive-sm {
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+}
+
+.text-responsive-base {
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+}
+
+.text-responsive-lg {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+}
+
+.text-responsive-xl {
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+}
+
+/* Mobile-optimized card padding */
+@media (max-width: 640px) {
+  .glass-panel {
+    border-radius: 0;
+  }
+}
+
+/* Landscape mode adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .min-h-\[60px\] {
+    min-height: 48px;
+  }
+}

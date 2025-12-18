@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,10 +12,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
+  themeColor: "#0a0c10",
+};
+
 export const metadata: Metadata = {
   title: "சாலை அறிவிப்பு | Tamil Nadu Traffic Alerts",
   description: "Hyperlocal traffic intelligence for Tamil Nadu. Get real-time alerts for rallies, festivals, and road closures in Erode, Namakkal, and Salem districts.",
   keywords: ["traffic", "Tamil Nadu", "Erode", "Namakkal", "Salem", "rally", "festival", "road closure", "navigation"],
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "சாலை அறிவிப்பு",
+  },
   openGraph: {
     title: "சாலை அறிவிப்பு - Road Alert",
     description: "Know about rallies, festivals, and road closures BEFORE you leave home. Hyperlocal traffic intelligence for Tamil Nadu.",
